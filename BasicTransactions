@@ -1,0 +1,47 @@
+1. Starting regtest mode:
+
+Open a terminal and navigate to your Bitcoin Core directory.
+Run the following command to start a Bitcoin Core node in regtest mode:
+
+bitcoind -regtest -daemon
+
+This will create a separate data directory for your regtest blockchain.
+
+
+2. Generating addresses:
+
+You'll need addresses to send and receive bitcoins in your regtest network.
+Use this command to generate a new address:
+
+bitcoin-cli -regtest getnewaddress
+This will provide you with a new Bitcoin address you can use for transactions.
+
+3. Generating blocks (mining):
+
+In regtest mode, you can generate blocks yourself to confirm transactions and earn testnet coins.
+
+There are a few ways to do this:
+
+Generate a specific number of blocks to an address:
+bitcoin-cli -regtest generatetoaddress <number_of_blocks> <your_address>
+* Generate until a specific coinbase reward is reached:
+bitcoin-cli -regtest generate <number_of_coins>
+4. Checking information:
+
+Get information about the blockchain:
+bitcoin-cli -regtest getblockcount
+This will display the current number of blocks in your regtest chain.
+
+Get information about a specific block:
+bitcoin-cli -regtest getblock <block_hash>
+Replace <block_hash> with the actual hash of the block you want to see details about.
+
+Get information about your wallet:
+bitcoin-cli -regtest getwalletinfo
+This will display details about your regtest wallet, including its balance.
+
+5. Sending and receiving bitcoins:
+
+Send bitcoins to another address:
+bitcoin-cli -regtest sendtoaddress <destination_address> <amount>
+Replace <destination_address> with the recipient's address and <amount> with the amount of bitcoins you want to send.
